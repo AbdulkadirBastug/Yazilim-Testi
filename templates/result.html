@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analysis Results</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3schools31.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    
+</head>
+<body>
+    <div class="w3-row w3-white" style="max-width: 1200px; margin: auto;">
+        <h1>Analysis Results</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Dosya İsmi</th>
+                    <th>Javadoc Yorum Sayısı</th>
+                    <th>Diğer Yorum Sayısı</th>
+                    <th>Kod Satır Sayısı</th>
+                    <th>Toplam Satır Sayısı (LOC)</th>
+                    <th>Fonksiyon Sayısı</th>
+                    <th>Yorum Sapma Yüzdesi</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in zipped_results %}
+                <tr>
+                    <td>{{ result.0 }}</td>
+                    <td>{{ result.1 }}</td>
+                    <td>{{ result.2 }}</td>
+                    <td>{{ result.3 }}</td>
+                    <td>{{ result.4 }}</td>
+                    <td>{{ result.5 }}</td>
+                    <td>{{ result.6 }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <form action="{% url 'index' %}" method="get">
+        <button type="submit" class="btn btn-primary">Back to Home</button>
+    </form>
+    
+
+</body>
+</html>

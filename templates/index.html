@@ -1,0 +1,48 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+		<link rel="stylesheet" href="https://www.w3schools.com/lib/w3schools31.css">
+		<link rel="stylesheet" href="{% static 'style.css' %}">
+	</head>
+	<body>
+		<h2>GitHub Repository Form</h2>
+		<form method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button type="submit">Submit</button>
+		</form>
+		
+
+
+		<div class="w3-row w3-white" style="max-width: 1200px; margin: auto;">
+			<h1>Historical Analysis Results</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>Dosya İsmi</th>
+						<th>Javadoc Yorum Sayısı</th>
+						<th>Diğer Yorum Sayısı</th>
+						<th>Kod Satır Sayısı</th>
+						<th>Toplam Satır Sayısı (LOC)</th>
+						<th>Fonksiyon Sayısı</th>
+						<th>Yorum Sapma Yüzdesi</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for file_name, javadoc_count, other_comment_count, code_line_count, loc_count, function_count, deviation_percentage in zipped_results2 %}
+        <tr>
+            <td>{{ file_name }}</td>
+            <td>{{ javadoc_count }}</td>
+            <td>{{ other_comment_count }}</td>
+            <td>{{ code_line_count }}</td>
+            <td>{{ loc_count }}</td>
+            <td>{{ function_count }}</td>
+            <td>{{ deviation_percentage }}%</td>
+        </tr>
+        {% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

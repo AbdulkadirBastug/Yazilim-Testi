@@ -1,0 +1,41 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  td {
+    text-align: right; /* Sayısal değerleri sağa hizalar */
+  }
+  
+  td:first-child, th:first-child {
+    text-align: left; /* İlk sütunu sola hizala */
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Başlık Stili */
+  h1 {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Sayısal veriler için virgülden sonra iki basamak göster */
+  td:nth-child(2), td:nth-child(3), td:nth-child(4), td:nth-child(5), td:nth-child(6), td:nth-child(7) {
+    text-align: right;
+    /* Aşağıdaki satır, tarayıcı desteğine bağlı olarak sayısal değerlerin formatını düzeltebilir */
+    
+  }
+  
